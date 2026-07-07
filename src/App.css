@@ -1,0 +1,144 @@
+/* --- Navbar ---------------------------------------------------------------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 8px 18px;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.nav-link--active {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Page layout ----------------------------------------------------------- */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.page-title {
+  font-size: 30px;
+  letter-spacing: -0.6px;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* --- Chart panel ----------------------------------------------------------- */
+.chart-panel {
+  min-height: 460px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 16px 20px 20px;
+  box-sizing: border-box;
+}
+
+/* --- Card grid ------------------------------------------------------------- */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.card {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-title {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.card-value-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: -0.5px;
+}
+
+/* CSS-border triangles: up = green, down = red. */
+.card-triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.card-triangle--up {
+  border-bottom: 14px solid #10b981;
+}
+
+.card-triangle--down {
+  border-top: 14px solid #ef4444;
+}
