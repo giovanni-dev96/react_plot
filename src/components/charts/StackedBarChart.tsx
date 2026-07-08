@@ -14,14 +14,11 @@ export interface StackedBarChartProps {
   axisLeftLegend?: string
 }
 
-// Styling lives with the chart; data is supplied by the page that uses it.
-const defaultColors = ['#aa3bff', '#3b82f6', '#10b981']
-
 export default function StackedBarChart({
   data,
   keys,
   indexBy,
-  colors = defaultColors,
+  colors,
   axisLeftLegend,
 }: StackedBarChartProps) {
   const theme = useNivoTheme()
