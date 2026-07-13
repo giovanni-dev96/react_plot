@@ -59,3 +59,21 @@ export function useNivoTheme(): PartialTheme {
 
   return theme
 }
+
+/** Tracks the OS light/dark preference so charts can adapt beyond color. */
+export function usePrefersDark(): boolean {
+  const query = '(prefers-color-scheme: dark)'
+  const [prefersDark, setPrefersDark] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(query).matches,
+  )
+
+  useEffect(() => {
+    const media = window.matchMedia(query)
+    const update = () => setPrefersDark(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
+  return prefersDark
+}

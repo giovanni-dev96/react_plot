@@ -1,5 +1,5 @@
 import { ResponsiveRadar } from '@nivo/radar'
-import { useNivoTheme } from '../../plots/nivoTheme'
+import { useNivoTheme, usePrefersDark } from '../../plots/nivoTheme'
 
 export interface RadarChartProps {
   /** Rows of data. Each row holds the index field plus one value per key. */
@@ -19,6 +19,9 @@ export default function RadarChart({
   colors,
 }: RadarChartProps) {
   const theme = useNivoTheme()
+  // 'multiply' darkens the border lines to near-black on a dark background, so
+  // fall back to 'normal' in dark mode to keep them matched to the dot colors.
+  const prefersDark = usePrefersDark()
 
   return (
     <ResponsiveRadar
@@ -34,7 +37,7 @@ export default function RadarChart({
       colors={colors}
       borderWidth={2}
       fillOpacity={0.18}
-      blendMode="multiply"
+      blendMode={prefersDark ? 'normal' : 'multiply'}
       dotSize={8}
       dotBorderWidth={2}
       theme={theme}
